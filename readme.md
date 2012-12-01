@@ -12,3 +12,4 @@ An Event Command Map executes commands in response to events on a given Event Di
 * Write an adapter for AngularJS
 * Write an adapter for ____________?
 * Rake build?
+* Docs
