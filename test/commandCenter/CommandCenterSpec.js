@@ -29,6 +29,6 @@ describe("CommandCenter", function() {
 
         it("should politely return a 'null' unmapper", function() {
             expect(commandCenter.unmap(trigger).fromAll).toBeDefined();
-        })
+        });
     });
 });

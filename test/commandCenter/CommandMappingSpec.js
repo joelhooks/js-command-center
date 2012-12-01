@@ -24,6 +24,6 @@ describe("CommandMapping", function() {
         it("should store fireOnce as false when called with false", function() {
             mapping.once(false);
             expect(mapping.fireOnce).toBe(false);
-        })
-    })
+        });
+    });
 });

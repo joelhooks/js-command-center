@@ -16,6 +16,6 @@
 
         createTrigger = function(type) {
             return new EventCommandTrigger(injector, dispatcher, type);
-        }
-    }
+        };
+    };
 }());

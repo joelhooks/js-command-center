@@ -8,13 +8,17 @@
 
         this.addMapping = function(mapping) {
             verifyCommand(mapping);
-            mappings.head || addListener();
+            if (!mappings.head) {
+                addListener();
+            }
             mappings.add(mapping);
         };
 
         this.removeMapping = function(mapping) {
             mappings.remove(mapping);
-            mappings.head || removeListener();
+            if(!mappings.head) {
+                removeListener();
+            }
         };
 
         verifyCommand = function(mapping) {
@@ -30,6 +34,6 @@
 
         removeListener = function() {
             dispatcher.removeEventListener(type, executor.execute);
-        }
-    }
+        };
+    };
 }());

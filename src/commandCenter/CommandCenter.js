@@ -24,7 +24,7 @@
 
         this.unmap = function(trigger) {
             return mappings.get(trigger) || nullUnmapper;
-        }
-    }
+        };
+    };
 
 }());

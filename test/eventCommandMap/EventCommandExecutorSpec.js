@@ -1,4 +1,7 @@
+/*global describe, beforeEach, it, expect, EventCommandMap, EventCommandExecutor, EventDispatcher, CommandCenter */
 describe("EventCommandExecutor", function() {
+    "use strict";
+
     var executor,
         injector,
         dispatcher,
@@ -17,7 +20,7 @@ describe("EventCommandExecutor", function() {
         };
         SimpleCommand.prototype.execute = function() {
             wasExecuted = true;
-        }
+        };
     });
 //eventCommandMap.map(SupportEvent.TYPE1, SupportEvent).toCommand(CallbackCommand).once(oneshot);
     it("should be constructed", function() {
@@ -28,5 +31,5 @@ describe("EventCommandExecutor", function() {
         commandMap.map(EVENT_ONE).toCommand(SimpleCommand);
         dispatcher.dispatchEvent(EVENT_ONE);
         expect(wasExecuted).toBe(true);
-    })
+    });
 });

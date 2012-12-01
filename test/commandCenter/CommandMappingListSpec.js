@@ -1,7 +1,8 @@
 describe("CommandMappingList", function() {
     var list,
         mapping1,
-        mapping2;
+        mapping2,
+        mapping3;
 
     beforeEach(function() {
         list = new CommandMappingList();

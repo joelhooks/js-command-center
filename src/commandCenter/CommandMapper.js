@@ -17,7 +17,7 @@
 
         this.fromCommand = function(commandConstructor) {
             var mapping = mappings.get(commandConstructor);
-            mapping && deleteMapping(mapping);
+            deleteMapping(mapping);
         };
 
         this.fromAll = function() {
@@ -41,6 +41,6 @@
         overwriteMapping = function(mapping) {
             deleteMapping(mapping);
             return createMapping(mapping.commandConstructor);
-        }
-    }
+        };
+    };
 }());

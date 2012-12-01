@@ -6,12 +6,11 @@ describe("EventDispatcher", function() {
                 wasCalled: false,
                 callBack: function() {
                     wasCalled = true;
-                    console.log("SET WAS CALLED");
                 }
             };
 
         eventDispatcher.addEventListener("TEST", callBackObject.callBack, callBackObject);
         eventDispatcher.dispatchEvent("TEST");
         expect(wasCalled).toBe(true);
-    })
+    });
 });

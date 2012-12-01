@@ -10,6 +10,6 @@
             }
             this.fireOnce = isOnce;
             return this;
-        }
-    }
+        };
+    };
 }());

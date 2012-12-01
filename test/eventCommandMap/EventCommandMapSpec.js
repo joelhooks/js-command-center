@@ -33,6 +33,6 @@ describe("EventCommandMap", function() {
         it("should return different mappers for different types", function() {
             mapper = commandMap.map(EVENT_ONE);
             expect(commandMap.map(EVENT_TWO)).not.toBe(mapper);
-        })
-    })
+        });
+    });
 });

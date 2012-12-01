@@ -24,19 +24,19 @@ describe("EventCommandTrigger", function() {
             expect(function() {
                 //Jasmine needs it in an anon function
                 //@see http://stackoverflow.com/q/4144686/87002
-                trigger.addMapping(new CommandMapping(Object))
+                trigger.addMapping(new CommandMapping(Object));
             }).toThrow("No execute() method on CommandMapping");
         });
 
         it("should add a listener with the first mapping", function() {
             trigger.addMapping(new CommandMapping(NullCommand));
-            expect(dispatcher.addEventListener).toHaveBeenCalledOnce()
+            expect(dispatcher.addEventListener).toHaveBeenCalledOnce();
         });
 
         it("should ONLY add a listener with the first mapping", function() {
             trigger.addMapping(new CommandMapping(NullCommand));
             trigger.addMapping(new CommandMapping(NullCommand));
-            expect(dispatcher.addEventListener).toHaveBeenCalledOnce()
+            expect(dispatcher.addEventListener).toHaveBeenCalledOnce();
         });
     });
 
@@ -47,7 +47,7 @@ describe("EventCommandTrigger", function() {
 
             trigger.removeMapping(mapping);
 
-            expect(dispatcher.removeEventListener).toHaveBeenCalledOnce()
+            expect(dispatcher.removeEventListener).toHaveBeenCalledOnce();
         });
 
         it("should NOT remove the listener when other mappings still exist", function() {
@@ -57,6 +57,6 @@ describe("EventCommandTrigger", function() {
             trigger.removeMapping(mapping);
 
             expect(dispatcher.removeEventListener).not.toHaveBeenCalled();
-        })
-    })
+        });
+    });
 });

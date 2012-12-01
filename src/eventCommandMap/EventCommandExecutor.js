@@ -11,6 +11,6 @@
                 }
                 mapping = mapping.next;
             }
-        }
-    }
+        };
+    };
 }());

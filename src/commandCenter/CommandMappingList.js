@@ -30,6 +30,6 @@
                 node.next.previous = node.previous;
             }
 
-        }
+        };
     };
 }());
