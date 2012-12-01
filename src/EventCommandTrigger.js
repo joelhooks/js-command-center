@@ -1,9 +1,10 @@
 (function() {
-    window.EventCommandTrigger = function EventCommandTrigger(dispatcher) {
+    window.EventCommandTrigger = function EventCommandTrigger(injector, dispatcher, type) {
         var verifyCommand,
             addListener,
             removeListener,
-            mappings = new CommandMappingList();
+            mappings = new CommandMappingList(),
+            executor = new EventCommandExecutor(this, mappings, injector);
 
         this.addMapping = function(mapping) {
             verifyCommand(mapping);
@@ -23,14 +24,12 @@
             }
         };
 
-        //TODO Need to flesh out how/what is the event dispatcher here...
-
         addListener = function() {
-            dispatcher.addEventListener()
+            dispatcher.addEventListener(type, executor.execute);
         };
 
         removeListener = function() {
-            dispatcher.removeEventListener();
+            dispatcher.removeEventListener(type, executor.execute);
         }
     }
 }());

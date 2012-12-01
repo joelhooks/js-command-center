@@ -6,7 +6,12 @@
             overwriteMapping;
 
         this.toCommand = function(commandConstructor) {
-            var mapping = mappings.get(commandConstructor);
+            var mapping;
+
+            if(mappings.containsKey(commandConstructor)) {
+                mapping = mappings.get(commandConstructor);
+            }
+
             return mapping ? overwriteMapping(mapping) : createMapping(commandConstructor);
         };
 

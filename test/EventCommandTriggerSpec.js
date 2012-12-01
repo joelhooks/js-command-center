@@ -9,7 +9,7 @@ describe("EventCommandTrigger", function() {
             removeEventListener:sinon.spy()
         };
 
-        trigger = new EventCommandTrigger(dispatcher);
+        trigger = new EventCommandTrigger({}, dispatcher, "TYPE");
 
         NullCommand = function NullCommand(){};
         NullCommand.prototype.execute = function(params) {};
