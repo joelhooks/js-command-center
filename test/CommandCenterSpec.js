@@ -11,8 +11,14 @@ describe("CommandCenter", function() {
     });
 
     describe("map", function() {
-        it("should create mapper", function() {
+        xit("should create mapper", function() {
+            console.log(commandCenter.constructor === CommandCenter);
             expect(commandCenter.map(trigger)).toEqual({});
+        });
+
+        xit("should return existing mapper when given identical trigger", function() {
+            var mapper = commandCenter.map(trigger);
+            expect(commandCenter.map(trigger)).toBe(mapper);
         })
     })
 });
