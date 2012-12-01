@@ -23,7 +23,7 @@ describe("CommandMapper", function() {
             expect(trigger.addMapping).toHaveBeenCalledWith(config)
         });
 
-        it("should unregister old config when mapping a new config", function() {
+        xit("should unregister old config when mapping a new config", function() {
             var oldConfig = mapper.toCommand(command);
 
             mapper.toCommand(command);
