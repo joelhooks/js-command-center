@@ -1,9 +1,10 @@
 describe("CommandCenter", function() {
+    "use strict";
     var commandCenter,
         trigger = "COMMAND_TRIGGER";
 
     beforeEach(function() {
-        commandCenter = new CommandCenter();
+        commandCenter = new jscc.CommandCenter();
     });
 
     it("should be able to be constructed", function() {
@@ -12,7 +13,7 @@ describe("CommandCenter", function() {
 
     describe("map", function() {
         it("should create mapper", function() {
-            expect(commandCenter.map(trigger).constructor).toBe(CommandMapper);
+            expect(commandCenter.map(trigger).constructor).toBe(jscc.CommandMapper);
         });
 
         it("should return existing mapper when given identical trigger", function() {

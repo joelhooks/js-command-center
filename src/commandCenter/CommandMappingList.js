@@ -1,5 +1,6 @@
 (function() {
-    window.CommandMappingList = function CommandMappingList() {
+    "use strict";
+    jscc.CommandMappingList = function CommandMappingList() {
         this.head = null;
         this.tail = null;
 

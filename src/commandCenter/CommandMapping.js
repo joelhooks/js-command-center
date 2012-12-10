@@ -1,5 +1,6 @@
 (function() {
-    window.CommandMapping = function CommandMapping(commandConstructor) {
+    "use strict";
+    jscc.CommandMapping = function CommandMapping(commandConstructor) {
         this.commandConstructor = commandConstructor;
 
         this.fireOnce = false;

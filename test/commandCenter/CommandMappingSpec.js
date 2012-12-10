@@ -1,14 +1,15 @@
 describe("CommandMapping", function() {
+    "use strict";
     var mapping,
         commandConstructor;
 
     beforeEach(function() {
         commandConstructor = {};
-        mapping = new CommandMapping(commandConstructor);
+        mapping = new jscc.CommandMapping(commandConstructor);
     });
 
     it("should be instantiated", function() {
-       expect(mapping.constructor).toBe(CommandMapping);
+       expect(mapping.constructor).toBe(jscc.CommandMapping);
     });
 
     it("should store command constructor", function() {

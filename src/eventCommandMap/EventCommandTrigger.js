@@ -1,10 +1,11 @@
 (function() {
-    window.EventCommandTrigger = function EventCommandTrigger(injector, dispatcher, type) {
+    "use strict";
+    jscc.EventCommandTrigger = function EventCommandTrigger(injector, dispatcher, type) {
         var verifyCommand,
             addListener,
             removeListener,
-            mappings = new CommandMappingList(),
-            executor = new EventCommandExecutor(this, mappings, injector);
+            mappings = new jscc.CommandMappingList(),
+            executor = new jscc.EventCommandExecutor(this, mappings, injector);
 
         this.addMapping = function(mapping) {
             verifyCommand(mapping);

@@ -1,21 +1,22 @@
 describe("CommandMapper", function() {
+    "use strict";
     var mapper,
         trigger,
-        command;
+        command,
+        command2;
 
     beforeEach(function() {
         trigger = {
             addMapping: sinon.spy(),
             removeMapping: sinon.spy()
         };
-        mapper = new CommandMapper(trigger);
+        mapper = new jscc.CommandMapper(trigger);
         command = {};
         command2 = {};
-
     });
 
     it("should be constructed", function() {
-        expect(mapper.constructor).toBe(CommandMapper);
+        expect(mapper.constructor).toBe(jscc.CommandMapper);
     });
 
     describe("toCommand", function() {

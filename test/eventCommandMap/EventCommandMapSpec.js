@@ -1,4 +1,5 @@
 describe("EventCommandMap", function() {
+    "use strict";
     var commandMap,
         dispatcher,
         injector,
@@ -12,17 +13,17 @@ describe("EventCommandMap", function() {
             removeEventListener:sinon.spy()
         };
         injector = {};
-        commandMap = new EventCommandMap(injector, dispatcher, new CommandCenter());
+        commandMap = new jscc.EventCommandMap(injector, dispatcher, new jscc.CommandCenter());
     });
 
     it("should be instantiated", function() {
-        expect(commandMap.constructor).toBe(EventCommandMap);
+        expect(commandMap.constructor).toBe(jscc.EventCommandMap);
     });
 
     describe("map", function() {
         it("should create mapper", function() {
             mapper = commandMap.map(EVENT_ONE);
-            expect(mapper.constructor).toBe(CommandMapper);
+            expect(mapper.constructor).toBe(jscc.CommandMapper);
         });
 
         it("should return same mapper when given identical event type", function() {

@@ -1,5 +1,6 @@
 (function() {
-    window.CommandMapper = function CommandMapper(trigger) {
+    "use strict";
+    jscc.CommandMapper = function CommandMapper(trigger) {
         var mappings = new Hashtable(),
             createMapping,
             deleteMapping,
@@ -27,7 +28,7 @@
         };
 
         createMapping = function(commandConstructor) {
-            var mapping = new CommandMapping(commandConstructor);
+            var mapping = new jscc.CommandMapping(commandConstructor);
             trigger.addMapping(mapping);
             mappings.put(commandConstructor, mapping);
             return mapping;

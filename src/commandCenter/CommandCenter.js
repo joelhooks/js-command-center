@@ -1,6 +1,8 @@
-(function() {
+var jscc = jscc || {};
 
-    window.CommandCenter = function CommandCenter () {
+(function() {
+    "use strict";
+    jscc.CommandCenter = function CommandCenter () {
         var mappings = new Hashtable(),
             nullUnmapper = {
                 fromCommand: function(commandConstructor) {
@@ -15,7 +17,7 @@
             var mapper = mappings.get(trigger);
 
             if(!mapper) {
-                mappings.put(trigger, new CommandMapper(trigger));
+                mappings.put(trigger, new jscc.CommandMapper(trigger));
                 mapper = mappings.get(trigger);
             }
 

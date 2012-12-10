@@ -1,4 +1,5 @@
 describe("EventDispatcher", function() {
+    "use strict";
     it("should listen for events", function() {
         var eventDispatcher = new EventDispatcher(),
             wasCalled,

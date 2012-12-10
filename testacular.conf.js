@@ -10,8 +10,9 @@ basePath = '.';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'lib/**/*.js',
-  'src/**/*.js',
+  'build/*.js',
+  'lib/jasmine-sinon.js',
+  'lib/sinon-1.5.2.js',
   'test/**/*.js'
 ];
 

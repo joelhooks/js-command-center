@@ -1,5 +1,6 @@
 (function() {
-    window.EventCommandMap = function EventCommandMap(injector, dispatcher, commandCenter) {
+    "use strict";
+    jscc.EventCommandMap = function EventCommandMap(injector, dispatcher, commandCenter) {
         var createTrigger,
             triggers = new Hashtable();
 
@@ -15,7 +16,7 @@
         };
 
         createTrigger = function(type) {
-            return new EventCommandTrigger(injector, dispatcher, type);
+            return new jscc.EventCommandTrigger(injector, dispatcher, type);
         };
     };
 }());

@@ -13,8 +13,8 @@ describe("EventCommandExecutor", function() {
     beforeEach(function() {
         injector = {};
         dispatcher = new EventDispatcher();
-        commandMap = new EventCommandMap(injector, dispatcher, new CommandCenter());
-        executor = new EventCommandExecutor();
+        commandMap = new jscc.EventCommandMap(injector, dispatcher, new jscc.CommandCenter());
+        executor = new jscc.EventCommandExecutor();
         SimpleCommand = function SimpleCommand() {
             wasExecuted = false;
         };
@@ -24,7 +24,7 @@ describe("EventCommandExecutor", function() {
     });
 //eventCommandMap.map(SupportEvent.TYPE1, SupportEvent).toCommand(CallbackCommand).once(oneshot);
     it("should be constructed", function() {
-        expect(executor.constructor).toBe(EventCommandExecutor);
+        expect(executor.constructor).toBe(jscc.EventCommandExecutor);
     });
 
     it("should execute command", function() {

@@ -1,11 +1,12 @@
 describe("CommandMappingList", function() {
+    "use strict";
     var list,
         mapping1,
         mapping2,
         mapping3;
 
     beforeEach(function() {
-        list = new CommandMappingList();
+        list = new jscc.CommandMappingList();
         mapping1 = {name: "mapping1", previous: null, next:null};
         mapping2 = {name: "mapping2", previous:null, next:null};
         mapping3 = {name: "mapping3", previous:null, next: null};
