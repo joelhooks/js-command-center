@@ -1,0 +1,1 @@
+var jscc = jscc || {};

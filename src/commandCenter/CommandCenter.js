@@ -1,5 +1,3 @@
-var jscc = jscc || {};
-
 (function() {
     "use strict";
     jscc.CommandCenter = function CommandCenter () {

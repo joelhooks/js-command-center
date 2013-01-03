@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     },
     concat: {
       dist: {
-        src: ['<banner:meta.banner>', 'lib/jshashtable-2.1_src.js', 'lib/EventDispatcher.js', 'src/**/*.js'],
+        src: ['<banner:meta.banner>', 'src/CommandCenterNamespace.js', 'lib/jshashtable-2.1_src.js', 'lib/EventDispatcher.js', 'src/**/*.js'],
         dest: 'build/js-command-center.js'
       }
     },
