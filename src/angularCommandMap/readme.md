@@ -4,7 +4,7 @@
 
 CommandMap for use with AngularJS.
 
-h2. Basic Usage
+## Basic Usage
 
 This assumes we are using the "Angular Seed" project with the `js-command-map.js` provided as a dependency
 to that project.
@@ -31,7 +31,8 @@ This will allow for it to be injected:
     };
 
     modules.provider('commandMap', commandMapProvider);
-}());```
+}());
+```
 
 This then needs to be declared in `app.js` so that Angular will know where to find it:
 
@@ -41,7 +42,8 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives', 
     $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: MyCtrl1});
     $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: MyCtrl2});
     $routeProvider.otherwise({redirectTo: '/view1'});
-  }]);```
+  }]);
+  ```
 
 With that set, we now need to define some commands. In this case, we've added a "root" controller
 to the root angular view:
