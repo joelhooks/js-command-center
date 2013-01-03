@@ -56,10 +56,7 @@ and in the `controllers.js` we will map the command:
 
 ```javascript
 function root(commandMap) {
-    console.log(commandMap)
-    var myCommandOne = function myCommandOne() {
-
-    }
+    var myCommandOne = function myCommandOne() {}
 
     myCommandOne.prototype.execute = function ($rootScope, params) {
         console.log("Command from:", params.id)
