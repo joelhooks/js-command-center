@@ -9,8 +9,6 @@ An Event Command Map executes commands in response to events on a given Event Di
 ## TODO
 
 * Write more tests for the EventCommandExecutor
-* Take it off **window**
-* Write an adapter for AngularJS
+* Write tests for Angular adapter
 * Write an adapter for ____________?
-* Rake build?
 * Docs
