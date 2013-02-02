@@ -1,20 +1,20 @@
-(function() {
+(function () {
     "use strict";
-    jscc.CommandCenter = function CommandCenter () {
+    jscc.CommandCenter = function CommandCenter() {
         var mappings = new Hashtable(),
             nullUnmapper = {
-                fromCommand: function(commandConstructor) {
+                fromCommand: function (commandConstructor) {
 
                 },
-                fromAll: function() {
+                fromAll: function () {
 
                 }
             };
 
-        this.map = function(trigger) {
+        this.map = function (trigger) {
             var mapper = mappings.get(trigger);
 
-            if(!mapper) {
+            if (!mapper) {
                 mappings.put(trigger, new jscc.CommandMapper(trigger));
                 mapper = mappings.get(trigger);
             }
@@ -22,8 +22,14 @@
             return mapper;
         };
 
-        this.unmap = function(trigger) {
-            return mappings.get(trigger) || nullUnmapper;
+        this.unmap = function (trigger) {
+            var mapping = mappings.get(trigger);
+
+            if (mapping) {
+                return mapping;
+            }
+
+            return nullUnmapper;
         };
     };
 

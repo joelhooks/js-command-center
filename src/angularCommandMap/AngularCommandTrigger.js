@@ -1,5 +1,14 @@
 (function() {
     "use strict";
+    /**
+     * Handles event listening for the CommandMap. Generally no need to access
+     * this object directly.
+     *
+     * @param injector
+     * @param scope
+     * @param type
+     * @constructor
+     */
     jscc.AngularCommandTrigger = function AngularCommandTrigger(injector, scope, type) {
         var verifyCommand,
             addListener,

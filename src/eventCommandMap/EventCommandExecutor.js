@@ -8,6 +8,9 @@
             while(mapping) {
                 command = new mapping.commandConstructor();
                 if(command) {
+                    if(mapping.fireOnce) {
+                        trigger.removeMapping(mapping);
+                    }
                     command.execute();
                 }
                 mapping = mapping.next;

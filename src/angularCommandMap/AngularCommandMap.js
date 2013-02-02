@@ -1,13 +1,30 @@
 (function() {
     "use strict";
-    jscc.AngularCommandMap = function AngularCommandMap(injector, scope, commandCenter) {
+    /**
+     * CommandMap to be used within an AngularJS application.
+     *
+     * @param {Object} injector AngularJS $injector
+     * @param {Object} rootScope AngularJS $rootScope
+     * @param {Object} commandCenter CommandCenter instance
+     * @constructor
+     */
+    jscc.AngularCommandMap = function AngularCommandMap(injector, rootScope, commandCenter) {
         var createTrigger,
             triggers = new Hashtable();
 
-        this.map = function(eventType) {
+        /**
+         * Accepts an event string to listen for. Is followed by
+         * `toCommand` to map to a Command object.
+         *
+         * `commandMap.map('myCommandTriggerEvent').toCommand(commands.MyCommand);`
+         *
+         * @param {String} eventType
+         * @return {*}
+         */
+        this.map = function (eventType) {
             var trigger = triggers.get(eventType);
 
-            if(!trigger) {
+            if (!trigger) {
                 trigger = createTrigger(eventType);
                 triggers.put(eventType, trigger);
             }
@@ -15,8 +32,22 @@
             return commandCenter.map(trigger);
         };
 
-        createTrigger = function(type) {
-            return new jscc.AngularCommandTrigger(injector, scope, type);
+        /**
+         * This will unmap a command from the given event string. Is followed by
+         * `fromCommand` to map to a Command object.
+         *
+         * `commandMap.unmap('myCommandTriggerEvent').fromCommand(commands.MyCommand);`
+         *
+         * @param {String} eventType
+         * @return {*}
+         */
+        this.unmap = function (eventType) {
+            var trigger = triggers.get(eventType);
+            return commandCenter.unmap(trigger);
+        };
+
+        createTrigger = function (type) {
+            return new jscc.AngularCommandTrigger(injector, rootScope, type);
         };
     };
 }());
