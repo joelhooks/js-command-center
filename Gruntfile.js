@@ -1,6 +1,12 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  
   // Project configuration.
   grunt.initConfig({
     meta: {
@@ -23,12 +29,6 @@ module.exports = function(grunt) {
         dest: 'build/js-command-center.js'
       }
     },
-    min: {
-      dist: {
-        src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
-        dest: 'build/js-command-center.min.js'
-      }
-    },
     watch: {
       files: '<config:lint.files>',
       tasks: 'lint test'
@@ -48,10 +48,22 @@ module.exports = function(grunt) {
       },
       globals: {}
     },
-    uglify: {}
+
+    uglify: {
+      compile: {
+        options: {
+          mangle: {
+            except: ['angular', 'window', 'require']
+          }
+        },
+        files: {
+          'build/js-command-center.min.js': '<%= concat.dist.dest %>'
+        }
+      }
+    }
   });
 
   // Default task.
-  grunt.registerTask('default', 'concat min');
+  grunt.registerTask('default', ['concat', 'uglify']);
 
 };

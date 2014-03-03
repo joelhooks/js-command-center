@@ -1,16 +1,19 @@
 (function() {
     "use strict";
-    /**
-     * CommandMap to be used within an AngularJS application.
-     *
-     * @param {Object} injector AngularJS $injector
-     * @param {Object} rootScope AngularJS $rootScope
-     * @param {Object} commandCenter CommandCenter instance
-     * @constructor
-     */
-    jscc.AngularCommandMap = function AngularCommandMap(injector, rootScope, commandCenter) {
+
+
+  angular.module('command-map', [])
+
+    .factory('commandMap', function (dispatcher, AngularCommandTrigger) {
+      /**
+       * CommandMap to be used within an AngularJS application.
+       *
+       * @param {Object} commandCenter CommandCenter instance
+       * @constructor
+       */
+      jscc.AngularCommandMap = function AngularCommandMap(commandCenter) {
         var createTrigger,
-            triggers = new Hashtable();
+          triggers = new Hashtable();
 
         /**
          * Accepts an event string to listen for. Is followed by
@@ -22,14 +25,19 @@
          * @return {*}
          */
         this.map = function (eventType) {
-            var trigger = triggers.get(eventType);
 
-            if (!trigger) {
-                trigger = createTrigger(eventType);
-                triggers.put(eventType, trigger);
-            }
+          if (typeof eventType === 'undefined') {
+            throw new Error("cannot map undefined.");
+          }
 
-            return commandCenter.map(trigger);
+          var trigger = triggers.get(eventType);
+
+          if (!trigger) {
+            trigger = createTrigger(eventType);
+            triggers.put(eventType, trigger);
+          }
+
+          return commandCenter.map(trigger);
         };
 
         /**
@@ -42,12 +50,16 @@
          * @return {*}
          */
         this.unmap = function (eventType) {
-            var trigger = triggers.get(eventType);
-            return commandCenter.unmap(trigger);
+          var trigger = triggers.get(eventType);
+          return commandCenter.unmap(trigger);
         };
 
         createTrigger = function (type) {
-            return new jscc.AngularCommandTrigger(injector, rootScope, type);
+          return new AngularCommandTrigger(type);
         };
-    };
+      };
+
+      return new AngularCommandMap(new jscc.CommandCenter())
+    })
+  ;
 }());

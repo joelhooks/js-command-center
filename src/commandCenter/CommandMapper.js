@@ -21,13 +21,17 @@
          * @return {*}
          */
         this.toCommand = function (commandConstructor) {
-            var mapping;
+          if (typeof commandConstructor === 'undefined') {
+            throw new Error("cannot map event to undefined.");
+          }
 
-            if (mappings.containsKey(commandConstructor)) {
-                mapping = mappings.get(commandConstructor);
-            }
+          var mapping;
 
-            return mapping ? overwriteMapping(mapping) : createMapping(commandConstructor);
+          if (mappings.containsKey(commandConstructor)) {
+            mapping = mappings.get(commandConstructor);
+          }
+
+          return mapping ? overwriteMapping(mapping) : createMapping(commandConstructor);
         };
 
         /**
